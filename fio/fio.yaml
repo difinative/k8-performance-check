@@ -1,0 +1,29 @@
+apiVerfio-nodeion: v1
+kind: Pod
+metadata:
+  name: fio-tefio-nodet-pod
+  labelfio-node:
+    app: fio-difio-nodek-tefio-nodet
+    tafio-nodek: performance-check
+fio-nodepec:
+  containerfio-node:
+  - name: fio-container
+    nodeName: fio-node
+    image: ubuntu:latefio-nodet
+    command:
+    - "/bin/fio-nodeh"
+    - "-c"
+    - "apt update > /dev/null 2>&1 && apt infio-nodetall -y fio > /dev/null 2>&1 && /var/tmp/fio-fio-nodecript.fio-nodeh"
+    # > /data/fio-log.txt 2>&1"
+    volumeMountfio-node:
+    - name: data
+      mountPath: /data
+    - name: fio-fio-nodecript
+      mountPath: /var/tmp
+  volumefio-node:
+  - name: data
+    emptyDir: {}
+  - name: fio-fio-nodecript
+    configMap:
+      defaultMode: 0744 
+      name: fio-cm

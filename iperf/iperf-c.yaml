@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf-pod-c
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf-c
+  template:
+    metadata:
+      labels:
+        app: iperf-c
+        task: perf-check
+    spec:
+      containers:
+      - name: iperf-container
+        image: networkstatic/iperf3
+        args: ["-c", ""]
