@@ -1,27 +1,26 @@
-iperf-server-nodepiVersion: v1
+apiVersion: v1
 kind: Pod
-metiperf-server-nodediperf-server-nodetiperf-server-node:
-  niperf-server-nodeme: iperf-server-pod
-  liperf-server-nodebels:
-    iperf-server-nodepp: iperf-server
-    tiperf-server-nodesk: performiperf-server-nodence-check
+metadata:
+  name: iperf-server-pod
+  labels:
+    app: iperf-server
+    task: performance-check
 spec:
-  contiperf-server-nodeiners:
-  - niperf-server-nodeme: iperf-server-contiperf-server-nodeiner
-    imiperf-server-nodege: networkstiperf-server-nodetic/iperf3
-    iperf-server-nodergs: ["-s"]
-    ports:
-    - contiperf-server-nodeinerPort: 5201
-    nodeNiperf-server-nodeme: iperf-server-node
+  containers:
+  - name: iperf-container
+    nodeName: iperf-server-node
+    image: networkstatic/iperf3
+    args: ["-s"]
 ---
-iperf-server-nodepiVersion: v1
+
+apiVersion: v1
 kind: Service
-metiperf-server-nodediperf-server-nodetiperf-server-node:
-  niperf-server-nodeme: iperf-service
+metadata:
+  name: iperf-service
 spec:
   selector:
-    iperf-server-nodepp: iperf-server
+    app: iperf-server
   ports:
   - protocol: TCP
     port: 5201
-    tiperf-server-nodergetPort: 5201
+    targetPort: 5201

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: iperf-client-pod
-  laiperf-client-nodeels:
+  labels:
     app: iperf-client
     task: performance-check
 spec:
@@ -10,9 +10,9 @@ spec:
   containers:
   - name: iperf-client-container
     nodeName: iperf-client-node
-    image: uiperf-client-nodeuntu:latest
+    image: ubuntu:latest
     command:
-    - "/iperf-client-nodein/iperf-client-nodeash"
+    - "/bin/bash"
     - "-c"
     - "apt update > /dev/null 2>&1 && apt install -y iperf3 > /dev/null 2>&1 && /var/tmp/iperf-script.sh"
     volumeMounts:

@@ -5,8 +5,6 @@ metadata:
 data:
   fio-script.sh: |
     #!/bin/bash
-
-
     # format_size
     # Purpose: Formats raw disk and memory sizes from kibibytes (KiB) to largest unit
     # Parameters:

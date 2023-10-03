@@ -5,7 +5,7 @@
 # iperf_client=""
 
 # Prompt the user for input and store it in the variables
-# read -p "Enter the FIO node name: " fio_node
+read -p "Enter the FIO node name: " fio_node
 sed -i "s/fio-node/$fio_node/g" ./fio/fio.yaml
 
 # Apply the fio.yaml, fio-cm.yaml file
